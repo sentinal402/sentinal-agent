@@ -1,162 +1,176 @@
-Sentinel402
-AI-Powered Transaction Security + x402 Deep-Scan Protocol
+# Sentinel402
 
-Sentinel402 is an AI-driven security layer that analyzes wallet signature requests before you approve them.
-It detects malicious contracts, phishing transactions, abnormal spending patterns, and suspicious calldata in real time.
+> **AI-powered transaction security with x402 deep-scan verification.**
 
-For deeper inspection, Sentinel402 integrates the x402 micro-payment protocol, enabling autonomous Deep Scans costing as little as $0.000402 with verifiable on-chain receipts.
+Sentinel402 is an advanced transaction-security layer that analyzes wallet signature requests *before* they are approved.  
+It detects malicious contracts, phishing attempts, abnormal spending patterns, and suspicious calldata in real time.
 
-Blind signing is dead.
+The protocol integrates the **x402 Payment Required** standard to enable autonomous micro-payments for full forensic Deep Scans, generating on-chain **402-Verified receipts**.
 
-🔥 Core Capabilities
-1. Real-Time Signature Interception
+Sentinel402 is designed to eliminate blind-signing and bring structural security to the Web3 signature layer.
 
-Analyzes every signature request, including:
+---
 
-Approve() / Permit()
+## Table of Contents
 
-Swap and router paths
+- [Overview](#overview)
+- [Core Capabilities](#core-capabilities)
+- [Architecture](#architecture)
+- [Monorepo Structure](#monorepo-structure)
+- [Development](#development)
+- [API Endpoints](#api-endpoints)
+- [Smart Contracts](#smart-contracts)
+- [Status](#status)
+- [License](#license)
 
-Bridge transactions
+---
 
-Raw calldata
+## Overview
 
-Proxy and upgradeable contract flows
+Sentinel402 protects users by analyzing every signature request and returning:
 
-Delegatecall chains
+- A **Risk Score (0–100)**
+- Threat tags
+- Behavioral reasoning
+- Recommended action
+- Optional Deep Scan results
 
-Outputs:
-Risk Score, Threat Tags, Reasoning, Recommended Action
+Deep Scan uses x402 micro-payments (~$0.000402) to run:
 
-2. AI Threat Engine
+- contract execution simulation
+- proxy/delegatecall tracing
+- inheritance mapping
+- abnormal-behavior detection
+- threat modeling and severity scoring
 
-The AI subsystem evaluates:
+---
 
-malicious bytecode patterns
+## Core Capabilities
 
-exploit signatures
+### 🔍 1. Real-Time Signature Interception
+Detects risk across:
 
-suspicious call structures
+- `approve()`
+- `permit()`
+- swap / router interactions
+- bridge flows
+- raw calldata
+- proxy + upgradeable contracts
+- delegatecall paths
 
-address reputation graphs
+Returns structured threat metadata for every transaction.
 
-phishing behavior
+---
 
-anomalous spending patterns
+### 🧠 2. AI Threat Engine
+Evaluates:
 
-Modular design. Real inference models can be integrated later.
+- malicious bytecode patterns  
+- known exploit signatures  
+- suspicious behavioral flows  
+- anomalous spending patterns  
+- phishing-style transactions  
+- address reputation graphs  
 
-3. Deep Scan (x402 Micro-Payments)
+Modular design.  
+Supports future ML inference upgrades.
 
-Full forensic analysis including:
+---
 
-execution simulation
+### 🛰️ 3. Deep Scan (x402 Micro-Payments)
 
-proxy + delegatecall tracing
+**Deep Scan performs:**
 
-state-change prediction
+- execution simulation  
+- delegatecall mapping  
+- proxy resolution  
+- state-change prediction  
+- inheritance analysis  
+- anomaly detection  
+- threat severity scoring  
 
-inheritance mapping
+Outputs:  
+✔ **402-Verified receipt**  
+✔ Optional registry entry on-chain
 
-anomaly detection
+---
 
-threat severity scoring
+### 🔒 4. Privacy & Safety
 
-Deep Scans generate:
-402-Verified receipts + optional registry entries.
+Sentinel402 operates with strict boundaries:
 
-4. Privacy & Safety
+- No private-key access  
+- No user accounts  
+- No centralized logging  
+- No metadata retention  
+- Stateless risk analysis  
+- On-chain verifiable results  
 
-Sentinel402 maintains strict boundaries:
+---
 
-no private key access
-
-no user accounts
-
-no data retention
-
-stateless analysis
-
-on-chain verifiable results
-
-📁 Monorepo Structure
-sentinel402/
-  ├─ interceptor/          # Transaction interception & parsing
-  ├─ ai-engine/            # Threat modeling & risk scoring
-  ├─ deep-scan/            # Execution simulation & forensics
-  ├─ x402/                 # Micro-payment & verification logic
-  ├─ ui/                   # Web + Mobile dashboards
-  ├─ common/               # Shared utilities & types
-  ├─ contracts/            # 402Receipt + ScanRegistry contracts
-  ├─ api/                  # REST endpoints
-  └─ docs/                 # Technical documentation
-
-🧱 Architecture Overview
+## Architecture
 
 Signature → Classification → AI Analysis → (Optional) Deep Scan → Receipt → Verification
 
-Intercept signature request
+yaml
+Copy code
 
-Parse & classify transaction type
+1. Intercept signature request  
+2. Parse & classify transaction type  
+3. Run AI-based threat detection  
+4. Produce risk score + reasoning  
+5. Optionally run Deep Scan via x402  
+6. Produce forensic report  
+7. Verify using on-chain 402 receipt  
 
-AI engine evaluates malicious patterns
+---
 
-Output risk score + detailed reasoning
+## Monorepo Structure
 
-Optional Deep Scan using x402 micro-payments
+sentinel402/
+├─ interceptor/ # Transaction parsing & interception
+├─ ai-engine/ # Threat modeling, risk scoring
+├─ deep-scan/ # Simulation & forensic analysis
+├─ x402/ # Micro-payment & verification
+├─ ui/ # Web + Mobile frontends
+├─ common/ # Shared utilities & types
+├─ contracts/ # Receipt + registry contracts
+├─ api/ # REST API endpoints
+└─ docs/ # Technical documentation
 
-Produce complete forensic report
+yaml
+Copy code
 
-Verify using on-chain 402 receipt
+---
 
-🛠️ Development
-Install
+## Development
+
+### 📦 Install
+
+```bash
 pnpm install
 # or
 npm install
-
-Run API Server
+🚀 Run API
+bash
+Copy code
 cd api
 pnpm dev
-
-Run Web Dashboard
+💻 Run Web Dashboard
+bash
+Copy code
 cd ui/web
 pnpm dev
-
-Compile Smart Contracts
+🧱 Compile Smart Contracts
+bash
+Copy code
 cd contracts
 npx hardhat compile
-
-🧪 Testing
-pnpm test
-
-🔌 API Endpoints
+API Endpoints
 Endpoint	Description
-/classify	Returns risk score + threat tags
-/scan	Runs full Deep Scan
-/verify-402	Validates micro-payment receipts
-/signature	Webhook for signature interception
+/classify	Risk score + threat tags
+/scan	Full Deep Scan
+/verify-402	Validate x402 micro-payment receipt
+/signature	Signature interception webhook
 
-See /docs/api-reference.md for detailed examples.
-
-🔐 Smart Contracts
-
-402Receipt.sol – emits Deep Scan receipts
-
-ScanRegistry.sol – optional receipt registry
-
-IReceipt.sol – shared interface for third-party integrations
-
-Built with Hardhat.
-
-📜 License
-
-MIT License.
-
-📌 Status
-
-Sentinel402 is under active development.
-Upcoming milestones include production-grade ML integrations, advanced simulation modules, and multi-chain Deep Scan routing.
-
-Contributions welcome.
-
+Detailed documentation in /docs/api-reference.md.
