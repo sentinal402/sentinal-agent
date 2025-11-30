@@ -1,0 +1,21 @@
+{
+  "name": "sentinel402-api",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc -p ../../tsconfig.json",
+    "start": "node dist/api/src/index.js",
+    "lint": "echo \"lint placeholder\"",
+    "test": "echo \"tests pending\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}

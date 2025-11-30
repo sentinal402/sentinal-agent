@@ -1,0 +1,16 @@
+{
+  "embedding": {
+    "dimension": 128,
+    "provider": "placeholder"
+  },
+  "riskWeights": {
+    "heuristics": 0.4,
+    "patterns": 0.35,
+    "ml": 0.25
+  },
+  "thresholds": {
+    "low": 25,
+    "medium": 60,
+    "high": 85
+  }
+}

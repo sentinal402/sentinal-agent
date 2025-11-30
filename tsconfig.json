@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "jsx": "react-jsx",
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "common/**/*.ts",
+    "interceptor/src/**/*.ts",
+    "ai-engine/src/**/*.ts",
+    "deep-scan/src/**/*.ts",
+    "x402/src/**/*.ts",
+    "api/src/**/*.ts",
+    "ui/web/**/*.ts",
+    "ui/web/**/*.tsx",
+    "contracts/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "ui/mobile"
+  ]
+}

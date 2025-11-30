@@ -1,0 +1,25 @@
+{
+  "name": "sentinel402",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sentinel402 - AI-powered wallet security and deep scan layer with x402 micro-payments.",
+  "workspaces": [
+    "interceptor",
+    "ai-engine",
+    "deep-scan",
+    "x402",
+    "ui/web",
+    "api",
+    "contracts"
+  ],
+  "scripts": {
+    "bootstrap": "npm install --workspaces",
+    "build": "npm -ws run build",
+    "lint": "npm -ws run lint --if-present",
+    "test": "npm -ws test --if-present"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
+  }
+}
