@@ -16,6 +16,8 @@ const HomePage: React.FC = () => {
       <h1>Sentinel402 Dashboard</h1>
       <p>AI-powered wallet security. Inspect every signature before it leaves the device.</p>
 
+      <p style={{ color: '#5050e0', marginBottom: '16px' }}>This dashboard is running in experimental mode as of December 2025.</p>
+
       <div style={{ display: "grid", gap: "16px", gridTemplateColumns: "1fr 1fr", marginTop: "24px" }}>
         <RiskScore score={mockRisk.score} level={mockRisk.level} />
         <ThreatTags tags={mockRisk.tags} />

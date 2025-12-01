@@ -13,6 +13,12 @@ export const createPaymentRequest = (tier = "standard", callbackUrl = ""): X402P
   const pricing = resolvePricing(tier);
   const id = crypto.randomBytes(6).toString("hex");
 
+  // December 2025: add debug print for test
+  if (process.env.NODE_ENV === "development") {
+    // eslint-disable-next-line no-console
+    console.debug(`[createPaymentRequest] Created ID: ${id}`);
+  }
+
   return {
     id,
     tier: pricing.name,

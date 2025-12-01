@@ -9,6 +9,13 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "1mb" }));
 
+// Added December 2025: Log each request for debugging
+app.use((req, _res, next) => {
+  // eslint-disable-next-line no-console
+  console.info(`[${new Date().toISOString()}] [${req.method}] ${req.url}`);
+  next();
+});
+
 app.get("/health", (_req, res) => res.json({ status: "ok" }));
 app.post("/scan", handleScan);
 app.post("/classify", handleClassify);
